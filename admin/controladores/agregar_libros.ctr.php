@@ -26,9 +26,9 @@ if (!move_uploaded_file($_FILES["imagen"]["tmp_name"], $targetFile)) {
 
 $image_path = "uploads/" . $uniqueName;
 
-$query = "INSERT INTO libros (nombre, genero, categoria, descripcion, autor_id, image_path) values ('$nombre', '$genero', '$categoria', '$descrpcion', '$autor_id', '$image_path')";
+$sql = "INSERT INTO libros (nombre, genero, categoria, descripcion, autor_id, image_path) values ('$nombre', '$genero', '$categoria', '$descrpcion', '$autor_id', '$image_path')";
 
-if (mysqli_query($conexion, $query)) {
+if ($conn->query($sql !== TRUE)) {
     header("Location: ../pages/agregar_libros.html?success=1");
     exit;
 } else {
@@ -36,4 +36,4 @@ if (mysqli_query($conexion, $query)) {
     exit;
 };
 
-mysqli_close($conexion);
+$conn->close();

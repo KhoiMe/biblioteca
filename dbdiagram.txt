@@ -27,7 +27,7 @@ Table "prestamo" {
   "sol_prestamo_id" int(11) [not null]
 }
 
-Ref "prestamo_ibfk_1":"usuarios"."id" < "prestamo"."usuario_id"
+Ref "prestamo_ibfk_1":"usuarios"."doc_id" < "prestamo"."usuario_id"
 
 Ref "prestamo_ibfk_2":"libros"."id" < "prestamo"."libro_id"
 
@@ -43,7 +43,7 @@ Table "sol_prestamos" {
 
 
 Table "usuarios" {
-  "id" int(11) [pk, not null, increment]
+  "doc_id" int(11) [pk, not null]
   "direccion" varchar(255) [not null]
   "nombre" varchar(255) [not null]
   "correo" varchar(255) [not null]

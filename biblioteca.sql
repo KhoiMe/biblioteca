@@ -33,7 +33,7 @@ CREATE TABLE `sol_prestamos` (
 );
 
 CREATE TABLE `usuarios` (
-  `id` int(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  `doc_id` int(11) PRIMARY KEY NOT NULL,
   `direccion` varchar(255) NOT NULL,
   `nombre` varchar(255) NOT NULL,
   `correo` varchar(255) NOT NULL,
@@ -49,7 +49,7 @@ CREATE TABLE `roles` (
 
 ALTER TABLE `libros` ADD CONSTRAINT `libros_ibfk_1` FOREIGN KEY (`autor_id`) REFERENCES `autores` (`id`);
 
-ALTER TABLE `prestamo` ADD CONSTRAINT `prestamo_ibfk_1` FOREIGN KEY (`usuario_id`) REFERENCES `usuarios` (`id`);
+ALTER TABLE `prestamo` ADD CONSTRAINT `prestamo_ibfk_1` FOREIGN KEY (`usuario_id`) REFERENCES `usuarios` (`doc_id`);
 
 ALTER TABLE `prestamo` ADD CONSTRAINT `prestamo_ibfk_2` FOREIGN KEY (`libro_id`) REFERENCES `libros` (`id`);
 

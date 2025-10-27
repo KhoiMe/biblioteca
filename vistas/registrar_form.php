@@ -42,28 +42,37 @@
                             <!-- To make this form functional, sign up at-->
                             <!-- https://startbootstrap.com/solution/contact-forms-->
                             <!-- to get an API token!-->
-                            <form method="post" action="../controladores/registrar_usuario.php" id="contactForm" data-sb-form-api-token="API_TOKEN">
+                            <form method="post" action="../controladores/registrar_usuario.ctr.php" id="contactForm" data-sb-form-api-token="API_TOKEN">
+                                <!-- doc_id -->
+                                <div class="form-floating mb-3">
+                                    <input class="form-control" name="doc_id" type="number" placeholder="Documento de Identidad..."
+                                        data-sb-validations="required" />
+                                    <label for="doc">Documento de identidad</label>
+                                    <div class="invalid-feedback" data-sb-feedback="name:required">
+                                        El documento es obligatorio
+                                    </div>
+                                </div>
                                 <!-- Name input-->
                                 <div class="form-floating mb-3">
                                     <input class="form-control" name="name" id="name" type="text" placeholder="Enter your name..."
                                         data-sb-validations="required" />
                                     <label for="name">Nombre completo</label>
                                     <div class="invalid-feedback" data-sb-feedback="name:required">
-                                            El nombre es obligatorio
-                                   </div>
+                                        El nombre es obligatorio
+                                    </div>
                                 </div>
                                 <!-- Direccion input-->
                                 <div class="form-floating mb-3">
-                                    <input class="form-control" name="direccion" id="name" type="text" placeholder="Enter your name..."
+                                    <input class="form-control" name="direccion" id="direccion" type="text" placeholder="Enter your name..."
                                         data-sb-validations="required" />
                                     <label for="name">Direccion</label>
                                     <div class="invalid-feedback" data-sb-feedback="name:required">
-                                            La direccion es obligatoria
-                                   </div>
+                                        La direccion es obligatoria
+                                    </div>
                                 </div>
                                 <!-- Email address input-->
                                 <div class="form-floating mb-3">
-                                    <input class="form-control" id="email" name="correo" type="email" placeholder="name@example.com"
+                                    <input class="form-control" id="email" name="email" type="email" placeholder="name@example.com"
                                         data-sb-validations="required,email" />
                                     <label for="email">Correo electronico</label>
                                     <div class="invalid-feedback" data-sb-feedback="email:required">An email is
@@ -73,7 +82,7 @@
                                 </div>
                                 <!-- Phone number input-->
                                 <div class="form-floating mb-3">
-                                    <input class="form-control" name="telefono" id="phone" type="tel" placeholder="(123) 456-7890"
+                                    <input class="form-control" name="phone" id="phone" type="tel" placeholder="(123) 456-7890"
                                         data-sb-validations="required" />
                                     <label for="phone">Número de telefono</label>
                                     <div class="invalid-feedback" data-sb-feedback="phone:required">A phone number is
@@ -82,20 +91,12 @@
                                 </div>
                                 <!-- Fecha de nacimiento input-->
                                 <div class="form-floating mb-3">
-                                    <input class="form-control" name="fecha_nac" id="date" type="date" placeholder="(123) 456-7890"
+                                    <input class="form-control" name="fecha_nac" id="fecha_nac" type="date" placeholder="(123) 456-7890"
                                         data-sb-validations="required" />
-                                    <label for="phone">Fecha de nacimiento</label>
-                                    <div class="invalid-feedback" data-sb-feedback="phone:required">A phone number is
+                                    <label for="fecha">Fecha de nacimiento</label>
+                                    <div class="invalid-feedback" data-sb-feedback="date:required">A phone number is
                                         required.
                                     </div>
-                                </div>
-                                <div class="form-floating mb-3">
-                                    <input class="form-control" name="doc_id" type="number" placeholder="Enter your name..."
-                                        data-sb-validations="required" />
-                                    <label for="name">Documento de identidad</label>
-                                    <div class="invalid-feedback" data-sb-feedback="name:required">
-                                            El documento es obligatorio
-                                   </div>
                                 </div>
                                 <!-- Submit success message-->
                                 <!---->
@@ -120,7 +121,7 @@
                                 <!-- Submit Button-->
 
                                 <div class="d-grid">
-                                        <button class="btn btn-primary btn-xl" id="submitButton"
+                                    <button class="btn btn-primary btn-xl" id="submitButton"
                                         type="submit">Enviar</button>
                                 </div>
                             </form>
