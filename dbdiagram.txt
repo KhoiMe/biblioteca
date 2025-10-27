@@ -1,0 +1,60 @@
+Table "autores" {
+  "id" int(11) [pk, not null, increment]
+  "nombre" varchar(255) [not null]
+  "biografia" varchar(255) [not null]
+}
+
+Table "libros" {
+  "id" int(11) [pk, not null, increment]
+  "genero" varchar(255) [not null]
+  "categoria" varchar(255) [not null]
+  "nombre" varchar(255) [not null]
+  "descripcion" varchar(255) [not null]
+  "autor_id" int(11) [not null]
+  "image_path" varchar(255) [not null]
+}
+
+Ref "libros_ibfk_1":"autores"."id" < "libros"."autor_id"
+
+Table "prestamo" {
+  "id" int(11) [pk, not null, increment]
+  "descripcion" text
+  "fecha" date [not null]
+  "fecha_entrega" date [not null]
+  "estado" varchar(255) [not null]
+  "usuario_id" int(11) [not null]
+  "libro_id" int(11) [not null]
+  "sol_prestamo_id" int(11) [not null]
+}
+
+Ref "prestamo_ibfk_1":"usuarios"."id" < "prestamo"."usuario_id"
+
+Ref "prestamo_ibfk_2":"libros"."id" < "prestamo"."libro_id"
+
+Ref"prestamo_sol_ibfk_1" : "sol_prestamos"."id" < "prestamo"."sol_prestamo_id"
+
+Table "sol_prestamos" {
+  "id" int(11) [pk, not null, increment]
+  "usuario_id" int(11) [not null]
+  "libro_id" int(11) [not null]
+  "fecha" date [not null]
+}
+
+
+
+Table "usuarios" {
+  "id" int(11) [pk, not null, increment]
+  "direccion" varchar(255) [not null]
+  "nombre" varchar(255) [not null]
+  "correo" varchar(255) [not null]
+  "telefono" varchar(255) [not null]
+  "fecha_nac" varchar(255) [not null]
+  "role_id" int(11) [not null]
+}
+
+Table "roles" {
+  "id" int(11) [pk, not null, increment]
+  "role_name" varchar(20) [not null]
+}
+
+Ref "role_ibfk_1":"roles"."id"< "usuarios"."role_id"
