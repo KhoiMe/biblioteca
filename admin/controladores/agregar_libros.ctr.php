@@ -28,11 +28,11 @@ $image_path = "uploads/" . $uniqueName;
 
 $sql = "INSERT INTO libros (nombre, genero, categoria, descripcion, autor_id, image_path) values ('$nombre', '$genero', '$categoria', '$descrpcion', '$autor_id', '$image_path')";
 
-if ($conn->query($sql !== TRUE)) {
+if ($conn->query($sql) === TRUE) {
     header("Location: ../pages/agregar_libros.html?success=1");
     exit;
 } else {
-    header("Location: ../pages/agregar_libros.html?error=" . urlencode(mysqli_error($conexion)));
+    header("Location: ../pages/agregar_libros.html?error=2" );
     exit;
 };
 
